@@ -10,6 +10,13 @@ This project was created for creating/sharing players talents builds in the [Idl
 * Counter of branches levels.
 * Generate your tree build (ALPHA).
 
+## Current TODOs
+
+* Limiting of total talents points.
+* Showing information about talents.
+* Saving tree via generated code.
+* Using generated code for sharing trees (generate-copy-paste).
+
 ## Download IdleTale
 
 You can download this game:
