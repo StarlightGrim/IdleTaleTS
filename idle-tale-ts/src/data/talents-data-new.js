@@ -1,3 +1,8 @@
+export const TALENTS_VALUES = {
+  MIN: 0,
+  MAX: 62,
+};
+
 export const TALENT_NAME = {
     BERSERK: "berserk",
     ASSASSIN: "assassin",
@@ -12,9 +17,9 @@ export const LEVEL_NAME = {
 export const CURRENT_TOTAL = {
     BERSERK: 0,
     ASSASSIN: 0
-}
+};
 
-export let talentsData = [
+export const talentsData = [
     {
       id: 0, 
       background: "/resources/berserk-talents/berserk-1.png",

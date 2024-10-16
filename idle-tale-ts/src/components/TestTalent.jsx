@@ -1,11 +1,17 @@
 import React, { useState } from "react";
-import {TALENT_NAME, LEVEL_NAME, CURRENT_TOTAL, talentsData} from "../data/talents-data-new"
+import {TALENT_NAME, LEVEL_NAME, CURRENT_TOTAL} from "../data/talents-data-new"
 
-const TestTalent = ({ id, data, setData, setTotal}) => {
+const TestTalent = ({ id, data, talentPoints, setData, setTotal}) => {
 
   function getTotalLevel(talentClass) {
-    return talentClass === TALENT_NAME.BERSERK 
-    ? CURRENT_TOTAL.BERSERK : CURRENT_TOTAL.ASSASSIN;
+    switch (talentClass) {
+      case TALENT_NAME.BERSERK:
+        return CURRENT_TOTAL.BERSERK;
+      case TALENT_NAME.ASSASSIN:
+        return CURRENT_TOTAL.ASSASSIN;
+      default:
+        return CURRENT_TOTAL.BERSERK + CURRENT_TOTAL.ASSASSIN;
+    }
   }
 
   function changeLevel(operator, level, max) {
@@ -53,14 +59,13 @@ const TestTalent = ({ id, data, setData, setTotal}) => {
       if ((el.changable.level > 0) & (el.talentClass === talentClass)) tier = el.tier
     })
 
-    return tier
+    return tier;
   }
 
   const onInputClick = () => {
     const newData = data.map(el => {
       if (el.id === id) {
-        if ((el.changable.level < el.max) 
-          & (getTotalLevel(el.talentClass) >= el.req)) {
+        if ((el.changable.level < el.max) & (getTotalLevel(el.talentClass) >= el.req) & (talentPoints > getTotalLevel())) {
 
             el.changable.level = changeLevel("+", el.changable.level, el.max);
             el.changable.style = changeStyle(el.changable.level, el.max);
