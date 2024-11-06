@@ -30,7 +30,10 @@ export const talentsData = [
       changable: {
         level: 0,
         style: "talent"
-      }
+      },
+      descStart: "Increases your autoattack damage by ",
+      descEnd: "%.",
+      descValues: [0, 100]
     }, {
       id: 1, 
       background: "/resources/berserk-talents/berserk-2.png",
@@ -41,7 +44,10 @@ export const talentsData = [
       changable: {
         level: 0,
         style: "talent"
-      }
+      },
+      descStart: "",
+      descEnd: "",
+      descValues: []
     }, {
       id: 2, 
       background: "/resources/berserk-talents/berserk-3.png",
@@ -52,7 +58,10 @@ export const talentsData = [
       changable: {
         level: 0,
         style: "talent"
-      }
+      },
+      descStart: "",
+      descEnd: "",
+      descValues: []
     }, {
       id: 3, 
       background: "/resources/berserk-talents/berserk-4.png",
@@ -63,7 +72,10 @@ export const talentsData = [
       changable: {
         level: 0,
         style: "talent"
-      }
+      },
+      descStart: "",
+      descEnd: "",
+      descValues: []
     }, {
       id: 4, 
       background: "/resources/berserk-talents/berserk-5.png",
@@ -74,7 +86,10 @@ export const talentsData = [
       changable: {
         level: 0,
         style: "talent"
-      }
+      },
+      descStart: "",
+      descEnd: "",
+      descValues: []
     }, {
       id: 5, 
       background: "/resources/berserk-talents/berserk-6.png",
@@ -85,7 +100,10 @@ export const talentsData = [
       changable: {
         level: 0,
         style: "talent"
-      }
+      },
+      descStart: "",
+      descEnd: "",
+      descValues: []
     }, {
       id: 6, 
       background: "/resources/berserk-talents/berserk-7.png",
@@ -96,7 +114,10 @@ export const talentsData = [
       changable: {
         level: 0,
         style: "talent"
-      }
+      },
+      descStart: "",
+      descEnd: "",
+      descValues: []
     }, {
       id: 7, 
       background: "/resources/berserk-talents/berserk-8.png",
@@ -107,7 +128,10 @@ export const talentsData = [
       changable: {
         level: 0,
         style: "talent"
-      }
+      },
+      descStart: "",
+      descEnd: "",
+      descValues: []
     }, {
       id: 8, 
       background: "/resources/berserk-talents/berserk-9.png",
@@ -118,7 +142,10 @@ export const talentsData = [
       changable: {
         level: 0,
         style: "talent"
-      }
+      },
+      descStart: "",
+      descEnd: "",
+      descValues: []
     }, {
       id: 9, 
       background: "/resources/berserk-talents/berserk-10.png",
@@ -129,7 +156,10 @@ export const talentsData = [
       changable: {
         level: 0,
         style: "talent"
-      }
+      },
+      descStart: "",
+      descEnd: "",
+      descValues: []
     }, {
       id: 10, 
       background: "/resources/berserk-talents/berserk-11.png",
@@ -140,7 +170,10 @@ export const talentsData = [
       changable: {
         level: 0,
         style: "talent"
-      }
+      },
+      descStart: "",
+      descEnd: "",
+      descValues: []
     }, {
       id: 11, 
       background: "/resources/berserk-talents/berserk-12.png",
@@ -151,7 +184,10 @@ export const talentsData = [
       changable: {
         level: 0,
         style: "talent"
-      }
+      },
+      descStart: "",
+      descEnd: "",
+      descValues: []
     }, {
       id: 12, 
       background: "/resources/berserk-talents/berserk-13.png",
@@ -162,7 +198,10 @@ export const talentsData = [
       changable: {
         level: 0,
         style: "talent"
-      }
+      },
+      descStart: "",
+      descEnd: "",
+      descValues: []
     }, {
       id: 13, 
       background: "/resources/berserk-talents/berserk-14.png",
@@ -173,7 +212,10 @@ export const talentsData = [
       changable: {
         level: 0,
         style: "talent"
-      }
+      },
+      descStart: "",
+      descEnd: "",
+      descValues: []
     }, {
       id: 14, 
       background: "/resources/berserk-talents/berserk-15.png",
@@ -184,7 +226,10 @@ export const talentsData = [
       changable: {
         level: 0,
         style: "talent"
-      }
+      },
+      descStart: "",
+      descEnd: "",
+      descValues: []
     }, {
       id: 15, 
       background: "/resources/berserk-talents/berserk-16.png",
@@ -195,7 +240,10 @@ export const talentsData = [
       changable: {
         level: 0,
         style: "talent"
-      }
+      },
+      descStart: "",
+      descEnd: "",
+      descValues: []
     }, {
       id: 16, 
       background: "/resources/assassin-talents/assassin-1.png",
@@ -206,7 +254,10 @@ export const talentsData = [
       changable: {
         level: 0,
         style: "talent"
-      }
+      },
+      descStart: "",
+      descEnd: "",
+      descValues: []
     }, {
       id: 17, 
       background: "/resources/assassin-talents/assassin-2.png",
@@ -217,7 +268,10 @@ export const talentsData = [
       changable: {
         level: 0,
         style: "talent"
-      }
+      },
+      descStart: "",
+      descEnd: "",
+      descValues: []
     }, {
       id: 18, 
       background: "/resources/assassin-talents/assassin-3.png",
@@ -228,7 +282,10 @@ export const talentsData = [
       changable: {
         level: 0,
         style: "talent"
-      }
+      },
+      descStart: "",
+      descEnd: "",
+      descValues: []
     }, {
       id: 19, 
       background: "/resources/assassin-talents/assassin-4.png",
@@ -239,7 +296,10 @@ export const talentsData = [
       changable: {
         level: 0,
         style: "talent"
-      }
+      },
+      descStart: "",
+      descEnd: "",
+      descValues: []
     }, {
       id: 20, 
       background: "/resources/assassin-talents/assassin-5.png",
@@ -250,7 +310,10 @@ export const talentsData = [
       changable: {
         level: 0,
         style: "talent"
-      }
+      },
+      descStart: "",
+      descEnd: "",
+      descValues: []
     }, {
       id: 21, 
       background: "/resources/assassin-talents/assassin-6.png",
@@ -261,7 +324,10 @@ export const talentsData = [
       changable: {
         level: 0,
         style: "talent"
-      }
+      },
+      descStart: "",
+      descEnd: "",
+      descValues: []
     }, {
       id: 22, 
       background: "/resources/assassin-talents/assassin-7.png",
@@ -272,7 +338,10 @@ export const talentsData = [
       changable: {
         level: 0,
         style: "talent"
-      }
+      },
+      descStart: "",
+      descEnd: "",
+      descValues: []
     }, {
       id: 23, 
       background: "/resources/assassin-talents/assassin-8.png",
@@ -283,7 +352,10 @@ export const talentsData = [
       changable: {
         level: 0,
         style: "talent"
-      }
+      },
+      descStart: "",
+      descEnd: "",
+      descValues: []
     }, {
       id: 24, 
       background: "/resources/assassin-talents/assassin-9.png",
@@ -294,7 +366,10 @@ export const talentsData = [
       changable: {
         level: 0,
         style: "talent"
-      }
+      },
+      descStart: "",
+      descEnd: "",
+      descValues: []
     }, {
       id: 25, 
       background: "/resources/assassin-talents/assassin-10.png",
@@ -305,7 +380,10 @@ export const talentsData = [
       changable: {
         level: 0,
         style: "talent"
-      }
+      },
+      descStart: "",
+      descEnd: "",
+      descValues: []
     }, {
       id: 26, 
       background: "/resources/assassin-talents/assassin-11.png",
@@ -316,7 +394,10 @@ export const talentsData = [
       changable: {
         level: 0,
         style: "talent"
-      }
+      },
+      descStart: "",
+      descEnd: "",
+      descValues: []
     }, {
       id: 27, 
       background: "/resources/assassin-talents/assassin-12.png",
@@ -327,7 +408,10 @@ export const talentsData = [
       changable: {
         level: 0,
         style: "talent"
-      }
+      },
+      descStart: "",
+      descEnd: "",
+      descValues: []
     }, {
       id: 28, 
       background: "/resources/assassin-talents/assassin-13.png",
@@ -338,7 +422,10 @@ export const talentsData = [
       changable: {
         level: 0,
         style: "talent"
-      }
+      },
+      descStart: "",
+      descEnd: "",
+      descValues: []
     }, {
       id: 29, 
       background: "/resources/assassin-talents/assassin-14.png",
@@ -349,7 +436,10 @@ export const talentsData = [
       changable: {
         level: 0,
         style: "talent"
-      }
+      },
+      descStart: "",
+      descEnd: "",
+      descValues: []
     }, {
       id: 30, 
       background: "/resources/assassin-talents/assassin-15.png",
@@ -360,7 +450,10 @@ export const talentsData = [
       changable: {
         level: 0,
         style: "talent"
-      }
+      },
+      descStart: "",
+      descEnd: "",
+      descValues: []
     }, {
       id: 31, 
       background: "/resources/assassin-talents/assassin-16.png",
@@ -371,7 +464,10 @@ export const talentsData = [
       changable: {
         level: 0,
         style: "talent"
-      }
+      },
+      descStart: "",
+      descEnd: "",
+      descValues: []
     }
 ]
 

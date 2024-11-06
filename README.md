@@ -5,17 +5,18 @@ This project was created for creating/sharing players talents builds in the [Idl
 ## Current Features
 
 * Put points into any talent from both talents trees.
+* Limiting of total talents points.
 * Restriction to use talents without unlocking predecessor.
 * Level-based restrictions.
 * Counter of branches levels.
-* Generate your tree build (ALPHA).
+* Generate, save and use your tree build (BETA).
 
 ## Current TODOs
 
-* Limiting of total talents points.
+* ~~Limiting of total talents points.~~
 * Showing information about talents.
-* Saving tree via generated code.
-* Using generated code for sharing trees (generate-copy-paste).
+* ~~Saving tree via generated code.~~
+* ~~Using generated code for sharing trees (generate-copy-paste)~~.
 
 ## Download IdleTale
 
