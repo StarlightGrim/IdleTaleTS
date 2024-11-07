@@ -3,7 +3,7 @@ import {TALENT_NAME, LEVEL_NAME, CURRENT_TOTAL} from "../data/talents-data-new"
 import { Tooltip } from 'react-tooltip'
 import '../App.css';
 
-const TestTalent = ({ id, data, talentPoints, setData, setTotal}) => {
+const TestTalent = ({ id, data, talentPoints, setData, setTotal, isTooltipOn}) => {
 	function getTotalLevel(talentClass) {
 		switch (talentClass) {
 		case TALENT_NAME.BERSERK:
@@ -119,14 +119,16 @@ const TestTalent = ({ id, data, talentPoints, setData, setTotal}) => {
 				backgroundSize: "110%, 110%",
 			}}
 			data-tooltip-id="my-tooltip"
-			data-tooltip-content={`
+			data-tooltip-html={`
 				${data[id].descStart}
-				${data[id].descValues[data[id].changable.level]}
+				<b>${data[id].descValues[data[id].changable.level]}</b>
 				${data[id].descEnd}
 			`}
 			data-tooltip-place="top"
+			data-tooltip-delay-show="1000"
+			data-tooltip-delay-hide="10"
 		/>
-		<Tooltip id="my-tooltip" />
+		{isTooltipOn ? <Tooltip className="tooltip-text" id="my-tooltip"/> : null}
 		</>
 	);
 };

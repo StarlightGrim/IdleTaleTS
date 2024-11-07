@@ -2,12 +2,12 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
-import Layout from "./compendium/Layout";
+import Layout from "./compendium/layout/Layout";
 import Home from "./compendium/home/Home";
-import NoPage from "./compendium/NoPage"
+import NoPage from "./compendium/no_page/NoPage"
 import TalentsBuilder from "./compendium/talents_builder/TalentsBuilder";
-import CharacterBuilder from "./compendium/CharacterBuilder";
-import GloryBuilder from "./compendium/GloryBuilder";
+import CharacterBuilder from "./compendium/character_builder/CharacterBuilder";
+import GloryBuilder from "./compendium/glory_builder/GloryBuilder";
 
 function TestApp() {
 

@@ -3,6 +3,7 @@ import '../../App.css';
 import TestTalent from "../../components/TestTalent.jsx";
 import { useState } from "react";
 import './TalentsBuilder.css';
+import ToggleButton from "../../components/ToggleButton.jsx";
 
 import {CURRENT_TOTAL, talentsData, TALENTS_VALUES} from "../../data/talents-data-new"
 
@@ -13,15 +14,16 @@ function EmptyTalent() {
 function TalentsBuilder() {
 	const [total, setTotal] = useState(CURRENT_TOTAL);
 	const [treeCode, setTreeCode] = useState('');
-	const [data, setData] = useState(talentsData)
-	const [talentPoints, setTalentPoints] = useState(62)
+	const [data, setData] = useState(talentsData);
+	const [talentPoints, setTalentPoints] = useState(62);
+	const [isToggled, setToggle] = useState(false);
 
 	function dataToBase64() {
 		const saveData = data.map(el => {
 		return [el.changable.level, el.changable.style];
 		});
 		// to string
-		let objJsonStr = JSON.stringify([saveData, [total.BERSERK, total.ASSASSIN], talentPoints]);
+		let objJsonStr = JSON.stringify([saveData, [total.BERSERK, total.ASSASSIN], total.BERSERK+total.ASSASSIN]);
 		// to base64
 		let encodedValue = btoa(objJsonStr);
 
@@ -36,9 +38,9 @@ function TalentsBuilder() {
 		let params = JSON.parse(decodedValue);
 
 		let newData = data.map(el => {
-		el.changable.level = params[0][el.id][0];
-		el.changable.style = params[0][el.id][1];
-		return el;
+			el.changable.level = params[0][el.id][0];
+			el.changable.style = params[0][el.id][1];
+			return el;
 		});
 
 		total.BERSERK = params[1][0];
@@ -52,18 +54,25 @@ function TalentsBuilder() {
 	return (
 		<div className="App">
 			<div className="TalentsBuilder">
-				<p>Test Talent Tree Builder (ver 1.2.0)</p>
+				<p>Talents Tree Builder (ver 1.3.0)</p>
 
 				<div className="builder-settings">
-					<div className="builder-settings-text">Talents Points</div>
-					<input value={talentPoints} className="talent-points-picker"
-						type="number" placeholder="Talent points"
-						onChange={e => {
-							let points = e.target.value >= TALENTS_VALUES.MAX
-							? TALENTS_VALUES.MAX : e.target.value <= TALENTS_VALUES.MIN
-							? 1 : e.target.value;
-							setTalentPoints(points);
-					}}/>
+					<div className="builder-settings-block">
+						<div className="builder-settings-text">Talents Points</div>
+						<input value={talentPoints} className="talent-points-picker"
+							type="number" placeholder="Talent points"
+							onChange={e => {
+								let points = e.target.value >= TALENTS_VALUES.MAX
+								? TALENTS_VALUES.MAX : e.target.value <= TALENTS_VALUES.MIN
+								? 1 : e.target.value;
+								setTalentPoints(points);
+						}}/>
+					</div>
+
+					<div className="builder-settings-block">
+						<div className="builder-settings-text">Show Tooltips</div>
+						<ToggleButton setOuterToggle={setToggle}/>
+					</div>
 				</div>
 
 				<div className="talent-tree">
@@ -78,6 +87,7 @@ function TalentsBuilder() {
 									talentPoints={talentPoints}
 									setData={setData}
 									setTotal={setTotal}
+									isTooltipOn={isToggled}
 								/>
 								<EmptyTalent />
 							</div>
@@ -88,6 +98,7 @@ function TalentsBuilder() {
 									talentPoints={talentPoints}
 									setData={setData}
 									setTotal={setTotal}
+									isTooltipOn={isToggled}
 								/>
 								<EmptyTalent />
 								<TestTalent 
@@ -96,6 +107,7 @@ function TalentsBuilder() {
 									talentPoints={talentPoints}
 									setData={setData}
 									setTotal={setTotal}
+									isTooltipOn={isToggled}
 								/>
 							</div>
 							<div className="talent-tree-row">
@@ -106,6 +118,7 @@ function TalentsBuilder() {
 									talentPoints={talentPoints}
 									setData={setData}
 									setTotal={setTotal}
+									isTooltipOn={isToggled}
 								/>
 								<TestTalent 
 									id={4}
@@ -113,6 +126,7 @@ function TalentsBuilder() {
 									talentPoints={talentPoints}
 									setData={setData}
 									setTotal={setTotal}
+									isTooltipOn={isToggled}
 								/>
 							</div>
 							<div className="talent-tree-row">
@@ -122,6 +136,7 @@ function TalentsBuilder() {
 									talentPoints={talentPoints}
 									setData={setData}
 									setTotal={setTotal}
+									isTooltipOn={isToggled}
 								/>
 								<EmptyTalent />
 								<TestTalent 
@@ -130,6 +145,7 @@ function TalentsBuilder() {
 									talentPoints={talentPoints}
 									setData={setData}
 									setTotal={setTotal}
+									isTooltipOn={isToggled}
 								/>
 							</div>
 							<div className="talent-tree-row">
@@ -139,6 +155,7 @@ function TalentsBuilder() {
 									talentPoints={talentPoints}
 									setData={setData}
 									setTotal={setTotal}
+									isTooltipOn={isToggled}
 								/>
 								<EmptyTalent />
 								<TestTalent 
@@ -147,6 +164,7 @@ function TalentsBuilder() {
 									talentPoints={talentPoints}
 									setData={setData}
 									setTotal={setTotal}
+									isTooltipOn={isToggled}
 								/>
 							</div>
 							<div className="talent-tree-row">
@@ -156,6 +174,7 @@ function TalentsBuilder() {
 									talentPoints={talentPoints}
 									setData={setData}
 									setTotal={setTotal}
+									isTooltipOn={isToggled}
 								/>
 								<TestTalent 
 									id={10}
@@ -163,6 +182,7 @@ function TalentsBuilder() {
 									talentPoints={talentPoints}
 									setData={setData}
 									setTotal={setTotal}
+									isTooltipOn={isToggled}
 								/>
 								<TestTalent 
 									id={11}
@@ -170,6 +190,7 @@ function TalentsBuilder() {
 									talentPoints={talentPoints}
 									setData={setData}
 									setTotal={setTotal}
+									isTooltipOn={isToggled}
 								/>
 							</div>
 							<div className="talent-tree-row">
@@ -179,6 +200,7 @@ function TalentsBuilder() {
 									talentPoints={talentPoints}
 									setData={setData}
 									setTotal={setTotal}
+									isTooltipOn={isToggled}
 								/>
 								<TestTalent 
 									id={13}
@@ -186,6 +208,7 @@ function TalentsBuilder() {
 									talentPoints={talentPoints}
 									setData={setData}
 									setTotal={setTotal}
+									isTooltipOn={isToggled}
 								/>
 								<TestTalent 
 									id={14}
@@ -193,6 +216,7 @@ function TalentsBuilder() {
 									talentPoints={talentPoints}
 									setData={setData}
 									setTotal={setTotal}
+									isTooltipOn={isToggled}
 								/>
 							</div>
 							<div className="talent-tree-row">
@@ -203,6 +227,7 @@ function TalentsBuilder() {
 									talentPoints={talentPoints}
 									setData={setData}
 									setTotal={setTotal}
+									isTooltipOn={isToggled}
 								/>
 								<EmptyTalent />
 							</div>
@@ -218,6 +243,7 @@ function TalentsBuilder() {
 									talentPoints={talentPoints}
 									setData={setData}
 									setTotal={setTotal}
+									isTooltipOn={isToggled}
 								/>
 								<EmptyTalent />
 							</div>
@@ -228,6 +254,7 @@ function TalentsBuilder() {
 									talentPoints={talentPoints}
 									setData={setData}
 									setTotal={setTotal}
+									isTooltipOn={isToggled}
 								/>
 								<EmptyTalent />
 								<TestTalent 
@@ -236,6 +263,7 @@ function TalentsBuilder() {
 									talentPoints={talentPoints}
 									setData={setData}
 									setTotal={setTotal}
+									isTooltipOn={isToggled}
 								/>
 							</div>
 							<div className="talent-tree-row">
@@ -245,6 +273,7 @@ function TalentsBuilder() {
 									talentPoints={talentPoints}
 									setData={setData}
 									setTotal={setTotal}
+									isTooltipOn={isToggled}
 								/>
 								<EmptyTalent />
 								<TestTalent 
@@ -253,6 +282,7 @@ function TalentsBuilder() {
 									talentPoints={talentPoints}
 									setData={setData}
 									setTotal={setTotal}
+									isTooltipOn={isToggled}
 								/>
 							</div>
 							<div className="talent-tree-row">
@@ -262,6 +292,7 @@ function TalentsBuilder() {
 									talentPoints={talentPoints}
 									setData={setData}
 									setTotal={setTotal}
+									isTooltipOn={isToggled}
 								/>
 								<TestTalent 
 									id={22}
@@ -269,6 +300,7 @@ function TalentsBuilder() {
 									talentPoints={talentPoints}
 									setData={setData}
 									setTotal={setTotal}
+									isTooltipOn={isToggled}
 								/>
 								<EmptyTalent />
 							</div>
@@ -279,6 +311,7 @@ function TalentsBuilder() {
 									talentPoints={talentPoints}
 									setData={setData}
 									setTotal={setTotal}
+									isTooltipOn={isToggled}
 								/>
 								<EmptyTalent />
 								<TestTalent 
@@ -287,6 +320,7 @@ function TalentsBuilder() {
 									talentPoints={talentPoints}
 									setData={setData}
 									setTotal={setTotal}
+									isTooltipOn={isToggled}
 								/>
 							</div>
 							<div className="talent-tree-row">
@@ -296,6 +330,7 @@ function TalentsBuilder() {
 									talentPoints={talentPoints}
 									setData={setData}
 									setTotal={setTotal}
+									isTooltipOn={isToggled}
 								/>
 								<TestTalent 
 									id={26}
@@ -303,6 +338,7 @@ function TalentsBuilder() {
 									talentPoints={talentPoints}
 									setData={setData}
 									setTotal={setTotal}
+									isTooltipOn={isToggled}
 								/>
 								<EmptyTalent />
 							</div>
@@ -313,6 +349,7 @@ function TalentsBuilder() {
 									talentPoints={talentPoints}
 									setData={setData}
 									setTotal={setTotal}
+									isTooltipOn={isToggled}
 								/>
 								<TestTalent 
 									id={28}
@@ -320,6 +357,7 @@ function TalentsBuilder() {
 									talentPoints={talentPoints}
 									setData={setData}
 									setTotal={setTotal}
+									isTooltipOn={isToggled}
 								/>
 								<TestTalent 
 									id={29}
@@ -327,6 +365,7 @@ function TalentsBuilder() {
 									talentPoints={talentPoints}
 									setData={setData}
 									setTotal={setTotal}
+									isTooltipOn={isToggled}
 								/>
 							</div>
 							<div className="talent-tree-row">
@@ -337,6 +376,7 @@ function TalentsBuilder() {
 									talentPoints={talentPoints}
 									setData={setData}
 									setTotal={setTotal}
+									isTooltipOn={isToggled}
 								/>
 								<TestTalent 
 									id={31}
@@ -344,6 +384,7 @@ function TalentsBuilder() {
 									talentPoints={talentPoints}
 									setData={setData}
 									setTotal={setTotal}
+									isTooltipOn={isToggled}
 								/>
 							</div>
 						</div>

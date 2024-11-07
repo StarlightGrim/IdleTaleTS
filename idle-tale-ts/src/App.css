@@ -89,9 +89,13 @@
 }
 
 .builder-settings {
-	display: inline-block;
+	display: inline-flex;
 	text-align: center;
 	font-size: 20px;
+}
+
+.builder-settings-block {
+	margin-inline-end: 20px;
 }
 
 .builder-settings-text {
@@ -112,6 +116,7 @@
 	font-size: 15px;
 }
 
-:root {
-	--rt-transition-closing-delay: 0s;
+.tooltip-text {
+	font-size: 15px !important;
+	width: 300px !important;
 }

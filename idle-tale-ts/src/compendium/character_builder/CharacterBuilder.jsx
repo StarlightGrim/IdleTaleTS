@@ -2,7 +2,8 @@ function CharacterBuilder() {
 
 	return (
 		<div className="App">
-			<h1>Character Builder</h1>
+			<h2>Character Builder</h2>
+			<div>Blackmoon Lord has not developed this page yet...</div>
 		</div>
 	);
 
