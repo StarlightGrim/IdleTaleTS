@@ -1,11 +1,11 @@
 import React from 'react';
 import '../../App.css';
-import TestTalent from "../../components/TestTalent.jsx";
+import TestTalent from "../../components/Talent";
 import { useState } from "react";
 import './TalentsBuilder.css';
-import ToggleButton from "../../components/ToggleButton.jsx";
+import ToggleButton from "../../components/ToggleButton";
 
-import {CURRENT_TOTAL, talentsData, TALENTS_VALUES} from "../../data/talents-data-new"
+import {CURRENT_TOTAL, TalentData, TALENTS_DATA, TALENTS_VALUES} from "../../data/talents-data-new"
 
 function EmptyTalent() {
 	return <input className="base-level talent" disabled={true}/>
@@ -14,13 +14,13 @@ function EmptyTalent() {
 function TalentsBuilder() {
 	const [total, setTotal] = useState(CURRENT_TOTAL);
 	const [treeCode, setTreeCode] = useState('');
-	const [data, setData] = useState(talentsData);
+	const [data, setData] = useState(TALENTS_DATA);
 	const [talentPoints, setTalentPoints] = useState(62);
 	const [isToggled, setToggle] = useState(false);
 
 	function dataToBase64() {
-		const saveData = data.map(el => {
-		return [el.changable.level, el.changable.style];
+		const saveData = data.map((el: TalentData) => {
+			return [el.changable.level, el.changable.style];
 		});
 		// to string
 		let objJsonStr = JSON.stringify([saveData, [total.BERSERK, total.ASSASSIN], total.BERSERK+total.ASSASSIN]);
@@ -37,7 +37,7 @@ function TalentsBuilder() {
 		// to data
 		let params = JSON.parse(decodedValue);
 
-		let newData = data.map(el => {
+		let newData = data.map((el: TalentData) => {
 			el.changable.level = params[0][el.id][0];
 			el.changable.style = params[0][el.id][1];
 			return el;
@@ -62,16 +62,16 @@ function TalentsBuilder() {
 						<input value={talentPoints} className="talent-points-picker"
 							type="number" placeholder="Talent points"
 							onChange={e => {
-								let points = e.target.value >= TALENTS_VALUES.MAX
-								? TALENTS_VALUES.MAX : e.target.value <= TALENTS_VALUES.MIN
+								let points = +e.target.value >= TALENTS_VALUES.MAX
+								? TALENTS_VALUES.MAX : +e.target.value <= TALENTS_VALUES.MIN
 								? 1 : e.target.value;
-								setTalentPoints(points);
-						}}/>
+								setTalentPoints(+points);
+							}}/>
 					</div>
 
 					<div className="builder-settings-block">
 						<div className="builder-settings-text">Show Tooltips</div>
-						<ToggleButton setOuterToggle={setToggle}/>
+						<ToggleButton isToggled={isToggled} setToggle={setToggle}/>
 					</div>
 				</div>
 

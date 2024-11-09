@@ -9,7 +9,7 @@ import TalentsBuilder from "./compendium/talents_builder/TalentsBuilder";
 import CharacterBuilder from "./compendium/character_builder/CharacterBuilder";
 import GloryBuilder from "./compendium/glory_builder/GloryBuilder";
 
-function TestApp() {
+function App() {
 
 	return (
 		<Router>
@@ -26,4 +26,4 @@ function TestApp() {
 	);
 }
 
-export default TestApp;
+export default App;

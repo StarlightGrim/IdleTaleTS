@@ -1,25 +1,41 @@
-export const TALENTS_VALUES = {
+export const TALENTS_VALUES: {
+  MIN: number, MAX: number
+} = {
   MIN: 0,
   MAX: 62,
 };
 
-export const TALENT_NAME = {
+export const TALENT_NAME: {
+  BERSERK: string, ASSASSIN: string
+} = {
     BERSERK: "berserk",
     ASSASSIN: "assassin",
 };
 
-export const LEVEL_NAME = {
+export const LEVEL_NAME: {
+  TALENT: string, COMPLETED: string, LEVELED: string
+} = {
     TALENT: "talent",
     COMPLETED: "completed",
     LEVELED: "leveled",
-  };
+};
 
-export const CURRENT_TOTAL = {
+export interface CurrentTotal {
+  BERSERK: number, ASSASSIN: number
+}
+
+export const CURRENT_TOTAL: CurrentTotal = {
     BERSERK: 0,
     ASSASSIN: 0
 };
 
-export const talentsData = [
+export interface TalentData {
+  id: number, background: string, talentClass: string,
+  max: number, req: number, tier: number, changable: {level: number, style: string},
+  descStart: string, descEnd: string, descValues: Array<any>
+}
+
+export const TALENTS_DATA: TalentData[] = [
     {
       id: 0, 
       background: "/resources/berserk-talents/berserk-1.png",

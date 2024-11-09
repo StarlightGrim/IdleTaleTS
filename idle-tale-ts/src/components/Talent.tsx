@@ -1,10 +1,22 @@
-import React, { useState } from "react";
-import {TALENT_NAME, LEVEL_NAME, CURRENT_TOTAL} from "../data/talents-data-new"
+import React, { Dispatch, SetStateAction, useState } from "react";
+import {TALENT_NAME, LEVEL_NAME, CURRENT_TOTAL, TalentData, CurrentTotal} from "../data/talents-data-new"
 import { Tooltip } from 'react-tooltip'
 import '../App.css';
 
-const TestTalent = ({ id, data, talentPoints, setData, setTotal, isTooltipOn}) => {
-	function getTotalLevel(talentClass) {
+interface Talent {
+    id: number,
+    data: Array<TalentData>,
+	talentPoints: number,
+	setData: Dispatch<SetStateAction<Array<TalentData>>>,
+	setTotal: Dispatch<SetStateAction<CurrentTotal>>,
+	isTooltipOn: boolean
+}
+
+const Talent: React.FC<Talent> = ({
+	id, data, talentPoints, setData, setTotal, isTooltipOn
+}) => {
+	
+	function getTotalLevel(talentClass: string) {
 		switch (talentClass) {
 		case TALENT_NAME.BERSERK:
 			return CURRENT_TOTAL.BERSERK;
@@ -15,7 +27,9 @@ const TestTalent = ({ id, data, talentPoints, setData, setTotal, isTooltipOn}) =
 		}
 	}
 
-	function changeLevel(operator, level, max) {
+	function changeLevel(
+		operator: string, level: number, max: number
+	) {
 		switch (operator) {
 		case "+":
 			return level >= max ? max : level += 1;
@@ -26,7 +40,7 @@ const TestTalent = ({ id, data, talentPoints, setData, setTotal, isTooltipOn}) =
 		}
 	}
 
-	function changeStyle(level, max) {
+	function changeStyle(level: number, max: number) {
 		switch (level) {
 		case 0:
 			return LEVEL_NAME.TALENT;
@@ -37,7 +51,7 @@ const TestTalent = ({ id, data, talentPoints, setData, setTotal, isTooltipOn}) =
 		}
 	}
 
-	function setClassLevel(operator, talentClass) {
+	function setClassLevel(operator: string, talentClass: Object) {
 		switch (operator) {
 		case "+":
 			talentClass === TALENT_NAME.BERSERK 
@@ -54,10 +68,10 @@ const TestTalent = ({ id, data, talentPoints, setData, setTotal, isTooltipOn}) =
 		setTotal(CURRENT_TOTAL);
 	}
 
-	function getCurrentTier(talentClass) {
+	function getCurrentTier(talentClass: Object) {
 		let tier = 0;
 		data.map(el => {
-		if ((el.changable.level > 0) & (el.talentClass === talentClass)) tier = el.tier
+		if ((el.changable.level > 0) && (el.talentClass === talentClass)) tier = el.tier
 		})
 
 		return tier;
@@ -66,7 +80,10 @@ const TestTalent = ({ id, data, talentPoints, setData, setTotal, isTooltipOn}) =
 	const onInputClick = () => {
 		const newData = data.map(el => {
 		if (el.id === id) {
-			if ((el.changable.level < el.max) & (getTotalLevel(el.talentClass) >= el.req) & (talentPoints > getTotalLevel())) {
+			if ((el.changable.level < el.max) 
+				&& (getTotalLevel(el.talentClass) >= el.req) 
+				&& (talentPoints > getTotalLevel("total"))
+			) {
 
 				el.changable.level = changeLevel("+", el.changable.level, el.max);
 				el.changable.style = changeStyle(el.changable.level, el.max);
@@ -81,13 +98,13 @@ const TestTalent = ({ id, data, talentPoints, setData, setTotal, isTooltipOn}) =
 		setData(newData);
 	};
 
-	const onContextMenu = (e) => {
+	const onContextMenu = (e: { preventDefault: () => void; }) => {
 		e.preventDefault();
 
 		const newData = data.map(el => {
 		if (el.id === id) {
 			if ((el.changable.level > 0) 
-			& (getCurrentTier(el.talentClass) <= el.tier)) {
+			&& (getCurrentTier(el.talentClass) <= el.tier)) {
 
 				el.changable.level = changeLevel("-", el.changable.level, el.max);
 				el.changable.style = changeStyle(el.changable.level, el.max);
@@ -125,12 +142,12 @@ const TestTalent = ({ id, data, talentPoints, setData, setTotal, isTooltipOn}) =
 				${data[id].descEnd}
 			`}
 			data-tooltip-place="top"
-			data-tooltip-delay-show="1000"
-			data-tooltip-delay-hide="10"
+			data-tooltip-delay-show={1000}
+			data-tooltip-delay-hide={10}
 		/>
 		{isTooltipOn ? <Tooltip className="tooltip-text" id="my-tooltip"/> : null}
 		</>
 	);
 };
 
-export default TestTalent;
+export default Talent;
